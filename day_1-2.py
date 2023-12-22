@@ -16,3 +16,18 @@ In this example, the calibration values are 29, 83, 13, 24, 42, 14, and 76. Addi
 What is the sum of all of the calibration values?
 
 '''
+num_dict = {'one':1,
+'two':2,
+'three':3,
+'four':4,
+'five':5,
+'six':6,
+'seven':7,
+'eight':8,
+'nine':9}
+
+def decode_str():
+    '''
+    turns every number words into numbers with a dictionary
+    execute the same function from before
+    '''
