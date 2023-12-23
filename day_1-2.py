@@ -44,8 +44,19 @@ def decode_str(text):
     turns every number words into numbers with a dictionary
     execute the same function from before
     '''
-    a = re.findall(list_, text)
-    print(a)
+    # sample_list = text.splitlines()
+    # for line in sample_list:
+    #     if re.findall('one', line):
+    #     # text.replace(a, 'HIIIII')
+    #         print(f"found {line}")
+    #         line.replace('one', 'HIIII')
+    #         print(line)
+    # # print(text.replace('two','HHHHHHH'))
+    # print(text)
+    for digits in num_dict.keys():
+        # print(digits)
+        text = text.replace(digits, str(num_dict[digits]))
+    print(text)
 
     return
 
