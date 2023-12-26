@@ -41,32 +41,35 @@ zoneight234
 
 def decode_str(text):
     '''
-    turns every number words into numbers with a dictionary
+    turn text into list of strings
+    use regex to find all instances of 'one' to 'nine'
+    save found instances in a list
+    replace first and last instance with numbers
     execute the same function from before
     '''
-    # sample_list = text.splitlines()
-    # for line in sample_list:
-    #     if re.findall('one', line):
-    #     # text.replace(a, 'HIIIII')
-    #         print(f"found {line}")
-    #         line.replace('one', 'HIIII')
-    #         print(line)
-    # # print(text.replace('two','HHHHHHH'))
-    # print(text)
 
     text_list = text.splitlines()
-    # for line in text_list:
+    for line in text_list:
+        pattern = r"one|two|three|four|five|six|seven|eight|nine"
+        matches = list(re.finditer(pattern, line)) # for every line, find every instance that matches
+        # one of the patterns starting from the beginning of the line
+        for match in matches: # replace the words with numbers one by one
+            line = line.replace(match.group(0), str(num_dict[match.group(0)]))
+    print(line)
 
+    num_list = []
+    for ele in text_list: # for every line in the whole text
+        for i in ele:
+            if i.isdigit():
+                num = str(i) # go through every position starting from the left until the first digit is found
+                break
+        for j in reversed(ele):
+            if j.isdigit():
+                num2 = str(j) # go through every position starting from the right until the first digit is found
+                break
+        num_list.append(int(num + num2))
 
-    # for digits in num_dict.keys():
-    #     # print(digits)
-    #     text = text.replace(digits, str(num_dict[digits]))
-    string = 'threeightwothreenine'
-    pattern = r"one|two|three|four|five|six|seven|eight|nine"
-    matched = list(re.finditer(pattern, string))
-
-    print(f'first match: {matched[0].group(0)}')
-    print(f'last match: {matched[-1].group(0)}')
+    print(sum(num_list))
 
     return
 
