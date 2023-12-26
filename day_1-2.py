@@ -53,10 +53,20 @@ def decode_str(text):
     #         print(line)
     # # print(text.replace('two','HHHHHHH'))
     # print(text)
-    for digits in num_dict.keys():
-        # print(digits)
-        text = text.replace(digits, str(num_dict[digits]))
-    print(text)
+
+    text_list = text.splitlines()
+    # for line in text_list:
+
+
+    # for digits in num_dict.keys():
+    #     # print(digits)
+    #     text = text.replace(digits, str(num_dict[digits]))
+    string = 'threeightwothreenine'
+    pattern = r"one|two|three|four|five|six|seven|eight|nine"
+    matched = list(re.finditer(pattern, string))
+
+    print(f'first match: {matched[0].group(0)}')
+    print(f'last match: {matched[-1].group(0)}')
 
     return
 
