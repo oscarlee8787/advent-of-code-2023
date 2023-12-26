@@ -49,13 +49,13 @@ def decode_str(text):
     '''
 
     text_list = text.splitlines()
-    for line in text_list:
+    for index, line in enumerate(text_list):
         pattern = r"one|two|three|four|five|six|seven|eight|nine"
         matches = list(re.finditer(pattern, line)) # for every line, find every instance that matches
         # one of the patterns starting from the beginning of the line
         for match in matches: # replace the words with numbers one by one
             line = line.replace(match.group(0), str(num_dict[match.group(0)]))
-    print(line)
+        text_list[index] = line
 
     num_list = []
     for ele in text_list: # for every line in the whole text
